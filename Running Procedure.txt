@@ -1,0 +1,7 @@
+Put the DB file folder " bike" file in c drive then run the file in internet explorer.
+
+While Popup Accept cookies
+
+To Run:
+
+Home file - open in internet explorer

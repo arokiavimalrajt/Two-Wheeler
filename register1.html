@@ -1,0 +1,119 @@
+<html>
+
+<title>Admin</title>
+
+<script>
+var space = /^[\ ]*$/;
+var alpha = /^[a-zA-Z]+$/;
+var num1= /^[0-9]*$/;
+
+
+function validatefeedbackFrm()
+{
+	var bhj= true;
+alert('Entered');
+	
+		if(space.test(document.feedbackFrm.emp.value))
+	{
+		alert("Please Enter your First Name");
+		document.feedbackFrm.emp.focus();
+		bhj= false;
+		//return false;
+	}
+	
+			if(space.test(document.feedbackFrm.emp1.value))
+	{
+		alert("Please Enter Last Name");
+		document.feedbackFrm.emp1.focus();
+		bhj= false;
+		//return false;
+	}
+if(space.test(document.feedbackFrm.tkt.value))
+	{
+		alert("Please Enter Required CC");
+		document.feedbackFrm.tkt.focus();
+		bhj= false;
+		//return false;
+	}
+			if(space.test(document.feedbackFrm.emp2.value))
+	{
+		alert("Please Enter your Address");
+		document.feedbackFrm.emp2.focus();
+		bhj= false;
+		//return false;
+	}
+			if(space.test(document.feedbackFrm.emp3.value))
+	{
+		alert("Please Enter your Contact Number");
+		document.feedbackFrm.emp3.focus();
+		bhj= false;
+		//return false;
+	}
+			
+			if(space.test(document.feedbackFrm.emp4.value))
+	{
+		alert("Please Enter your Interested Bike Model");
+		document.feedbackFrm.emp4.focus();
+		bhj= false;
+		//return false;
+	}
+	
+
+
+if(bhj)
+{
+var cn = new ActiveXObject("ADODB.Connection");
+var rs = new ActiveXObject("ADODB.Recordset");
+Path = "c:\\bike\\bike.mdb";
+var strconn = "Provider=Microsoft.Jet.OLEDB.4.0; Data Source=c:\\bike\\bike.mdb;"
+cn.open("Provider=Microsoft.Jet.OLEDB.4.0;Data Source=c:\\bike\\bike.mdb;");
+
+rs.open("select * from bike1",cn,1,2);
+rs.AddNew;
+
+rs.Fields("first")=document.feedbackFrm.emp.value;
+rs.Fields("surname")=document.feedbackFrm.emp1.value;
+rs.Fields("address")=document.feedbackFrm.emp2.value;
+rs.Fields("Mobile")=document.feedbackFrm.emp3.value;
+rs.Fields("comment")=document.feedbackFrm.emp4.value;
+
+
+
+rs.Update;
+alert("REcord updated suceesfully");
+return true;
+}
+}
+</script>
+
+<body bgcolor="#E7FA8A">
+	<br><br>
+<form name="feedbackFrm" id="feedbackFrm" autocomplete="off" action="" method="post" onsubmit="return validatefeedbackFrm()">
+
+
+<table border="0" align="center" width="300" height="280">
+
+
+<tr><td>First Name</td><td><input type="text" name="emp"/></td></tr>
+
+
+<tr><td>Last Name</td><td><input type="text" name="emp1"/></td></tr>
+<tr><td>Required CC</td><td><input type="text" name="tkt"/></td></tr>
+<tr><td>Address</td><td><input type="text" name="emp2"/></td></tr>
+<tr><td>Contact Number</td><td><input type="text" name="emp3"/></td></tr>
+
+<tr><td>Interested Model of Bike</td><td><input type="text" name="emp4"/></td></tr>
+
+</table>
+
+
+<table border="0" align="center" >
+<tr align="center" ><td><input type="Submit" name="Submit" value="Submit""/>&nbsp;&nbsp;&nbsp;<input type="Reset" name="Reset" value="Reset" /></td></tr>
+</table>
+
+
+</form>
+
+
+</body>
+</html>

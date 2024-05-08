@@ -1,0 +1,105 @@
+<html>
+<title>Suggestions</title>
+<body bgcolor="#E7FA8A">
+<font color="darkbrown"><center> <h1> </h1></center></font>
+
+
+
+
+<form name="frm">
+<BR><BR><BR><table align="center" border="0" height="300">
+<tr>
+<td>Name:</td>
+<td><input type="text" name="nme" value="" maxlength="10"</td>
+</tr>
+<tr>
+<td>Comments:</td>
+<td><textarea name="comment" rows="4"></textarea></td>
+</tr><tr>
+<td>Two Wheeeler you Like Most:</td>
+<td><input type-="text" name="comment1" rows="4"></textarea></td>
+</tr>
+<tr>
+<td>Telephone Number</td>
+<td><input type="text" name="no" value="" maxlength="10"</td>
+</tr>
+<tr>
+<td>E-Mail ID</td>
+<td><input type="text" name="mail" value=""</td>
+</tr>
+<tr>
+
+<td colspan="2"><center><input type="submit" name="submit" value="Submit" onclick="return validation();"></center></td>
+</tr>
+</table><br><br>
+
+
+</body>
+</html>
+
+<script language="javascript">
+function validation()
+{
+
+var num1= /^[0-9]*$/;
+if(document.frm.nme.value=="")
+{
+alert("Enter the User name");
+document.frm.nme.focus();
+return false;
+}
+if(document.frm.comment.value=="")
+{
+alert("Enter your Valuable Comments");
+document.frm.comment.focus();
+return false;
+}
+if(document.frm.comment1.value=="")
+{
+alert("Enter your Interested Bike Model");
+document.frm.comment1.focus();
+return false;
+}
+if(document.frm.no.value=="")
+{
+alert("Enter your Telephone Number");
+document.frm.no.focus();
+return false;
+}
+
+if(!num1.test(document.frm.no.value))
+{
+alert("Enter Number only");
+document.frm.no.focus();
+return false;
+}
+
+if(document.frm.mail.value=="")
+{
+alert("Enter the Email ID");
+document.frm.mail.focus();
+return false;
+}
+else
+	{
+		if(chkEmail(document.frm.mail.value)==false)
+		{
+			return false;
+		}
+	}
+
+
+}
+function chkEmail(field)
+{
+
+	if  (field.indexOf('@')==-1 || field.indexOf('.')==-1)
+	{
+		alert("Invalid Email ID");
+		document.frm.mail.focus();
+		return false;
+	}	
+return true;
+}
+</script>
+
